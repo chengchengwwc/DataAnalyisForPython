@@ -17,7 +17,9 @@ df1 = pd.DataFrame([[1,2,3],[np.nan,5,6],[7,np.nan,9],[np.nan,np.nan,np.nan]])
 print (df1)
 print (df1.isnull())
 print (df1.notnull())
-df2 = df1.dropna()
+df2 = df1.dropna(axis=0,how="all")
+
+df2.fillna(value={0:0,1:1,2:2})
 
 
 
