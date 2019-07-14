@@ -4,6 +4,8 @@
 #Sklean demo
 """
 线性回归对数据具有可解释性
+对数据有假设：线性
+对比KNN对数据没有假设
 """
 
 import  numpy as np
@@ -39,7 +41,7 @@ param_grid = [
     },
     {
         "weights":["distance"],
-        "n_neighbors":[for i in range(1,11)],
+        "n_neighbors":[i for i in range(1,11)],
         "p":[i for i in range(1,6)]
     }
 ]

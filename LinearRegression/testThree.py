@@ -4,6 +4,8 @@
 # 多元线性回归
 
 import numpy as np
+from sklearn.preprocessing import StandardScaler #归一化处理
+
 
 
 
@@ -23,6 +25,19 @@ class LinearRegression:
         self.interception_ = self._theta[0]
         self.coef_ = self._theta[1:]
         return self
+
+
+    def dj(self,theta,X_b,y):
+        return X_b.T.dot(X_b.dot(theta) - y) * 2
+
+
+
+
+
+
+
+
+
 
 
     def predict(self,X_predict):
@@ -54,14 +69,18 @@ class LinearRegression:
         return self.r2_score(y_test,y_predict)
 
 
-
-
-
-
-
-
-
-
-
     def __repr__(self):
         return "LinearRegression()"
+
+
+
+
+def test(X_train):
+    standarScaler = StandardScaler()
+    standarScaler.fit(X_train)
+    X_train.standard = standarScaler.transform(X_train)
+
+
+
+
+
